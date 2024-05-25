@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form validation</title>
+    <style>
+body{
+    background-color: aquamarine;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    height:100vh;
+    
+}
+#container{
+    background-color: beige;
+    padding:20px;
+    
+}
+h1{
+    text-align:center;
+    margin:10px;
+    font-size: 40px;
+}
+input{
+    margin:10px 0px;
+    font-size: 20px;
+}
+#btn{
+    width:240px;
+    text-align:center;
+}
+.p{
+    color:red;
+    text-align:left;
+}
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1 id="heading">login</h1>
+        <form action="" onsubmit="return func()">
+        <input type="text" id="username" placeholder="username"><br>
+        <p id="para1" class="p"></p>
+        <input type="password" id="password" placeholder="password"><br>
+        <p id="para2" class="p"></p>
+        <input type="submit" id="btn">
+    </form>
+    </div>
+    <script>
+     let username = document.getElementById("username");
+     let password = document.getElementById("password");
+     let flag = 1;
+     function func(){
+      if(username.value==""){
+        document.getElementById("para1").innerHTML = "please enter the username";
+        flag = 0;
+      }else if(username.value.length<3){
+        document.getElementById("para1").innerHTML = "minimum value is 3";
+        flag = 0;
+      }else{
+        document.getElementById("para1").innerHTML ="";
+        flag = 1;
+      }
+      if(password.value==""){
+        document.getElementById("para2").innerHTML = "enter password";
+        flag = 0;
+      }else{
+        document.getElementById("para2").innerHTML ="";
+        flag = 1;
+      }
+      if(flag){
+        return true;
+      }else{
+        return false;
+      }
+
+        
+     }
+
+    </script>
+</body>
+</html>
